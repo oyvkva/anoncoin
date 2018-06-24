@@ -801,6 +801,16 @@ void static AnoncoinMiner(CWallet *pwallet)
                         pblock->nVersion = 2;
                     }
                     nHashesDone++;
+
+                    // DEBUG
+                    uint256 hashTarget2;
+                    hashTarget2.SetCompact(0x1f04b9a7); //0x1e0eb9a7
+                    if( thash <= hashTarget2 ) {
+                        LogPrintf("HERE is an ok hash: (%s)  \n  hash: %s  \ntarget: %s\n", powHashType.c_str(), thash.GetHex(), hashTarget.GetHex());
+                    }
+                    // END DEBUG
+
+                    
                     if( thash <= hashTarget ) {
                         fFound = true;
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
