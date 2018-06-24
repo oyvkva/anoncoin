@@ -778,7 +778,7 @@ void static AnoncoinMiner(CWallet *pwallet)
             hashTarget.SetCompact(pblock->nBits);
             if (pindexPrev->nHeight+1 == ancConsensus.nDifficultySwitchHeight6)
             {
-                hashTarget.SetCompact(0x1e0eb9a7);
+                hashTarget.SetCompact(0x1efeb9a7); // 0x1e0eb9a7
                 pblock->nBits = hashTarget.GetCompact();
                 LogPrintf("Set GOST3411 target to: %s\n", hashTarget.ToString());
             }
